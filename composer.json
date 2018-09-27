@@ -1,0 +1,55 @@
+{
+    "name": "eneheme/object-calisthenics",
+    "description": "Best practices of OO",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Elie NEHME",
+            "email": "elie.nehme@adp.com"
+        }
+    ],
+    "license": "proprietary",
+    "minimum-stability": "stable",
+    "config": {
+        "sort-packages": true,
+        "process-timeout": 9000
+    },
+    "require": {
+        "php": "^7.1",
+        "beberlei/assert": "^2.9",
+        "roave/security-advisories": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0",
+        "symfony/var-dumper": "^4.0",
+        "mockery/mockery": "^1.0",
+        "hamcrest/hamcrest-php": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "autoload-dev": {
+        "files": [
+            "vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php"
+        ],
+        "psr-4": {
+            "": "tests/"
+        }
+    },
+    "scripts": {
+        "serve": "php -S localhost:5000 -d display_errors=1 -t public",
+        "cover": [
+            "@test",
+            "php -S localhost:5000 -d display_errors=1 -t build/coverage"
+        ],
+        "test": [
+            "@clean",
+            "phpunit"
+        ],
+        "clean": [
+            "rm -rf build/*"
+        ]
+    }
+}
